@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="save-indicator" id="saveIndicator">✓ Respostas salvas</div>
     
     <div class="container">
         <div class="header">
@@ -15,12 +16,12 @@
         </div>
 
         <div class="form-container">
-            <form action="https://formsubmit.co/aslinsjr@gmail.com" method="POST" id="questionsForm">
+            <form action="https://formsubmit.co/aslinsjr@gmail.com" method="POST">
                 <!-- Campos ocultos para FormSubmit -->
                 <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://aslinsjr.github.io/teste-estagio/pagina_agradecimento.html">
+                <input type="hidden" name="_next" value="https://teste-estagio-wine.vercel.app/pagina_agradecimento.html">
                 <input type="hidden" name="_subject" value="Nova Resposta">
-                <input type="hidden" name="_template" value="table">
+                <input type="hidden"  name="_template" value="table">
 
                 <div class="input-group">
                     <label for="nome">Nome Completo:</label>
@@ -35,31 +36,31 @@
                 <div class="question">
                     <h3>1. HTML, CSS e JavaScript</h3>
                     <p>O que faz cada uma dessas tecnologias: HTML, CSS e JavaScript? Dê um exemplo de como usaria cada uma para criar uma página web simples.</p>
-                    <textarea name="questao_1" id="questao_1" placeholder="Digite sua resposta aqui..." required></textarea>
+                    <textarea name="questao_1" id="questao_1" placeholder="Digite sua resposta aqui..."></textarea>
                 </div>
 
                 <div class="question">
                     <h3>2. Sites Responsivos</h3>
                     <p>O que significa um site ser "responsivo"? Como você faria um site funcionar bem tanto no celular quanto no computador?</p>
-                    <textarea name="questao_2" id="questao_2" placeholder="Digite sua resposta aqui..." required></textarea>
+                    <textarea name="questao_2" id="questao_2" placeholder="Digite sua resposta aqui..."></textarea>
                 </div>
 
                 <div class="question">
                     <h3>3. Git e Trabalho em Equipe</h3>
                     <p>Explique o que é Git e para que serve. Como você organizaria seu código ao trabalhar com outros desenvolvedores?</p>
-                    <textarea name="questao_3" id="questao_3" placeholder="Digite sua resposta aqui..." required></textarea>
+                    <textarea name="questao_3" id="questao_3" placeholder="Digite sua resposta aqui..."></textarea>
                 </div>
 
                 <div class="question">
                     <h3>4. Frameworks</h3>
                     <p>Você conhece algum framework ou biblioteca (React, Bootstrap, etc.)? Se sim, explique o que é e para que serve. Se não, pesquise sobre um e conte o que entendeu.</p>
-                    <textarea name="questao_4" id="questao_4" placeholder="Digite sua resposta aqui..." required></textarea>
+                    <textarea name="questao_4" id="questao_4" placeholder="Digite sua resposta aqui..."></textarea>
                 </div>
 
                 <div class="question">
                     <h3>5. Como Você Resolve Problemas</h3>
                     <p>Conte sobre uma vez que você teve dificuldade para fazer algo funcionar no código. Como resolveu o problema? Onde buscou ajuda?</p>
-                    <textarea name="questao_5" id="questao_5" placeholder="Digite sua resposta aqui..." required></textarea>
+                    <textarea name="questao_5" id="questao_5" placeholder="Digite sua resposta aqui..."></textarea>
                 </div>
 
                 <button type="submit" class="submit-btn">Enviar Respostas</button>
