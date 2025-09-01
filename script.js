@@ -24,7 +24,6 @@ function saveTime(time) {
     try {
         localStorage.setItem('questionario_tempo', time.toString());
     } catch (e) {
-        // Fallback - armazenar em variável global
         formData.tempo = time;
     }
 }
@@ -51,7 +50,6 @@ function updateTimer() {
             tempoTotalInput.value = formatTime(currentElapsed);
         }
         
-        // Salvar tempo
         saveTime(currentElapsed);
     }
 }
@@ -93,14 +91,12 @@ function saveData() {
     const formDataObj = new FormData(form);
     
     try {
-        // Tentar usar localStorage
         for (let [key, value] of formDataObj.entries()) {
             if (key !== 'tempo_total') {
                 localStorage.setItem(`questionario_${key}`, value);
             }
         }
     } catch (e) {
-        // Fallback - armazenar em variável global
         for (let [key, value] of formDataObj.entries()) {
             if (key !== 'tempo_total') {
                 formData[key] = value;
@@ -120,10 +116,8 @@ function loadSavedData() {
         let savedValue = null;
         
         try {
-            // Tentar carregar do localStorage
             savedValue = localStorage.getItem(`questionario_${input.name}`);
         } catch (e) {
-            // Fallback - carregar da variável global
             savedValue = formData[input.name];
         }
         
@@ -148,36 +142,29 @@ function debounce(func, wait) {
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', function() {
-    // Carregar dados salvos e iniciar timer
     loadSavedTime();
     loadSavedData();
     startTimer();
 
-    // Criar função debounced para salvar
     const debouncedSave = debounce(saveData, 1000);
 
-    // Salvar dados quando o usuário digita
     const inputs = document.querySelectorAll('input, textarea');
     inputs.forEach(input => {
         input.addEventListener('input', debouncedSave);
-        input.addEventListener('blur', saveData); // Salvar ao sair do campo
+        input.addEventListener('blur', saveData);
     });
 
-    // Manipular envio do formulário
     const form = document.getElementById('questionsForm');
     if (form) {
         form.addEventListener('submit', function(e) {
-            // Atualizar tempo final antes do envio
             const currentElapsed = Math.floor((Date.now() - startTime) / 1000) + totalElapsed;
             const tempoTotalInput = document.getElementById('tempoTotalInput');
             if (tempoTotalInput) {
                 tempoTotalInput.value = formatTime(currentElapsed);
             }
             
-            // Salvar dados finais
             saveData();
             
-            // Validar campos obrigatórios
             const requiredFields = form.querySelectorAll('[required]');
             let isValid = true;
             
@@ -193,22 +180,18 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!isValid) {
                 e.preventDefault();
                 alert('Por favor, preencha todos os campos obrigatórios.');
-                return;
             }
-            
-            console.log('Formulário sendo enviado...');
+            // Não bloquear o envio se válido, permitindo que o FormSubmit processe
         });
     }
 });
 
-// Salvar dados quando a página é fechada
 window.addEventListener('beforeunload', function() {
     saveData();
     totalElapsed += Math.floor((Date.now() - startTime) / 1000);
     saveTime(totalElapsed);
 });
 
-// Limpar dados salvos (função utilitária)
 function clearSavedData() {
     try {
         const keys = Object.keys(localStorage).filter(key => key.startsWith('questionario_'));
