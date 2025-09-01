@@ -164,24 +164,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             saveData();
-            
-            const requiredFields = form.querySelectorAll('[required]');
-            let isValid = true;
-            
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
-                    field.style.borderColor = '#e53e3e';
-                } else {
-                    field.style.borderColor = '#e2e8f0';
-                }
-            });
-            
-            if (!isValid) {
-                e.preventDefault();
-                alert('Por favor, preencha todos os campos obrigatórios.');
-            }
-            // Não bloquear o envio se válido, permitindo que o FormSubmit processe
+            // Validação temporariamente removida para testar o envio
+            // const requiredFields = form.querySelectorAll('[required]');
+            // let isValid = true;
+            // requiredFields.forEach(field => {
+            //     if (!field.value.trim()) {
+            //         isValid = false;
+            //         field.style.borderColor = '#e53e3e';
+            //     } else {
+            //         field.style.borderColor = '#e2e8f0';
+            //     }
+            // });
+            // if (!isValid) {
+            //     e.preventDefault();
+            //     alert('Por favor, preencha todos os campos obrigatórios.');
+            // }
         });
     }
 });
