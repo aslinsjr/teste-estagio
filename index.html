@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questões de Estágio - Desenvolvimento Web</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="save-indicator" id="saveIndicator">✓ Respostas salvas</div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Questões de Estágio</h1>
+            <p>Desenvolvimento Web - Responda com calma e seja detalhado</p>
+        </div>
+
+        <div class="timer">
+            <h3>Tempo decorrido</h3>
+            <div class="timer-display" id="timerDisplay">00:00:00</div>
+        </div>
+
+        <div class="form-container">
+            <form action="https://formsubmit.co/aslinsjr@gmail.com" method="POST" id="questionsForm">
+                <!-- Campos ocultos para FormSubmit -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://google.com">
+                <input type="hidden" name="_subject" value="Nova Resposta">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="tempo_total" id="tempoTotalInput">
+
+                <div class="input-group">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="question">
+                    <h3>1. HTML, CSS e JavaScript</h3>
+                    <p>O que faz cada uma dessas tecnologias: HTML, CSS e JavaScript? Dê um exemplo de como usaria cada uma para criar uma página web simples.</p>
+                    <textarea name="questao_1" id="questao_1" placeholder="Digite sua resposta aqui..." required></textarea>
+                </div>
+
+                <div class="question">
+                    <h3>2. Sites Responsivos</h3>
+                    <p>O que significa um site ser "responsivo"? Como você faria um site funcionar bem tanto no celular quanto no computador?</p>
+                    <textarea name="questao_2" id="questao_2" placeholder="Digite sua resposta aqui..." required></textarea>
+                </div>
+
+                <div class="question">
+                    <h3>3. Git e Trabalho em Equipe</h3>
+                    <p>Explique o que é Git e para que serve. Como você organizaria seu código ao trabalhar com outros desenvolvedores?</p>
+                    <textarea name="questao_3" id="questao_3" placeholder="Digite sua resposta aqui..." required></textarea>
+                </div>
+
+                <div class="question">
+                    <h3>4. Frameworks</h3>
+                    <p>Você conhece algum framework ou biblioteca (React, Bootstrap, etc.)? Se sim, explique o que é e para que serve. Se não, pesquise sobre um e conte o que entendeu.</p>
+                    <textarea name="questao_4" id="questao_4" placeholder="Digite sua resposta aqui..." required></textarea>
+                </div>
+
+                <div class="question">
+                    <h3>5. Como Você Resolve Problemas</h3>
+                    <p>Conte sobre uma vez que você teve dificuldade para fazer algo funcionar no código. Como resolveu o problema? Onde buscou ajuda?</p>
+                    <textarea name="questao_5" id="questao_5" placeholder="Digite sua resposta aqui..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Enviar Respostas</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
